@@ -5,13 +5,13 @@ import json
 def generate_id():
     try:
         data = read_json('menu.json')[-1]["id"] + 1
-        yield data
+        return int(data)
     except:
-        yield 1
+        return 1
 
 
 def write_json(filepath, data):
-    data["id"] = next(generate_id())
+    data["id"] = generate_id()
     old_data = read_json('menu.json')
     new_data = [*old_data, data]
     with open(filepath, 'w') as file:
