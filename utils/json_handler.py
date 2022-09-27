@@ -2,22 +2,21 @@ from genericpath import exists
 import json
 
 
-def generate_id():
+def generate_id(filepath):
     try:
-        data = read_json('menu.json')[-1]["id"] + 1
+        data = read_json(filepath)[-1]["id"] + 1
         return int(data)
     except:
         return 1
 
 
 def write_json(filepath, data):
-    data["id"] = generate_id()
-    old_data = read_json('menu.json')
+    data["id"] = generate_id(filepath)
+    old_data = read_json(filepath)
     new_data = [*old_data, data]
     print(new_data)
     with open(filepath, 'w') as file:
-        json.dump(new_data, file, ensure_ascii=False)
-    print(data["id"])
+        json.dump(new_data, file, ensure_ascii=False, indent=2)
     return data
 
 
