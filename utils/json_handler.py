@@ -16,6 +16,7 @@ def write_json(filepath, data):
     new_data = [*old_data, data]
     with open(filepath, 'w') as file:
         json.dump(new_data, file, ensure_ascii=False)
+        return data
 
 
 def read_json(filepath: str):
