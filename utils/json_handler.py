@@ -1,9 +1,13 @@
+from genericpath import exists
 import json
 
 
 def generate_id():
-    data = read_json('menu.json')[-1]["id"] + 1
-    yield data
+    try:
+        data = read_json('menu.json')[-1]["id"] + 1
+        yield data
+    except:
+        yield 1
 
 
 def write_json(filepath, data):
@@ -15,5 +19,10 @@ def write_json(filepath, data):
 
 
 def read_json(filepath: str):
-    with open(filepath, 'r', encoding='utf-8') as file:
-        return json.load(file)
+    try:
+        with open(filepath, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except:
+        with open(filepath, 'w') as file:
+            data = {}
+            json.dump([], file, ensure_ascii=False)
