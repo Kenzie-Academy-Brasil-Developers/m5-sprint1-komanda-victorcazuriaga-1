@@ -14,9 +14,11 @@ def write_json(filepath, data):
     data["id"] = generate_id()
     old_data = read_json('menu.json')
     new_data = [*old_data, data]
+    print(new_data)
     with open(filepath, 'w') as file:
         json.dump(new_data, file, ensure_ascii=False)
-        return data
+    print(data["id"])
+    return data
 
 
 def read_json(filepath: str):

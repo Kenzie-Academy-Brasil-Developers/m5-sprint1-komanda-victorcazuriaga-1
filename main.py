@@ -9,8 +9,8 @@ def main():
 if __name__ == "__main__":
     # Utilize essa área para testes com print
 
-    new_item = {"name": "Açai DO M5", "price": 10.0}
-    print(utils.write_json("menu.json", new_item))
+    new_item = {"name": "CHURROS DO M5", "price": 5.0}
+    utils.write_json("menu.json", new_item)
     table_1 = [{'id': 1, 'amount': 5}, {'id': 19, 'amount': 5}]
     table_2 = [
         {"id": 10, "amount": 3},
