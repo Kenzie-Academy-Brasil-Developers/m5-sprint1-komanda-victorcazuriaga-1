@@ -23,6 +23,4 @@ def read_json(filepath: str):
         with open(filepath, 'r', encoding='utf-8') as file:
             return json.load(file)
     except:
-        with open(filepath, 'w') as file:
-            data = {}
-            json.dump([], file, ensure_ascii=False)
+        return []
