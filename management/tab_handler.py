@@ -8,4 +8,4 @@ def calculate_tab(itens_list):
     for item in itens_list:
         price = menu[item["id"]]["price"]
         total += price * item["amount"]
-    return {"subtotal": total, "create_at": datetime.now().strftime("%d/%m/%Y %H:%M:%S")}
+    return {"subtotal": total, "created_at": datetime.now().strftime("%d/%m/%Y %H:%M:%S")}
